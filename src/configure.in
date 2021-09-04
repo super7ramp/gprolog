@@ -11,14 +11,19 @@ dnl ***************************
 dnl * initial variable values *
 dnl ***************************
 
+_date()
+{
+    LC_ALL=C date --date "@${SOURCE_DATE_EPOCH:-$(date +%s)}" "$@"
+}
+
 pl_date()
 {
-    LC_ALL=C date '+%b %e %Y'
+    _date '+%b %e %Y'
 }
 
 pl_year()
 {
-    LC_ALL=C date '+%Y'
+    _date '+%Y'
 }
 
 PROLOG_NAME='GNU Prolog'
